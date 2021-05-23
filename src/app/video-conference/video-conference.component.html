@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const ROOM_ID = "<%= roomId %>"
+    </script>
+    <title>Document</title>
+    <style>
+        #recordedVideo {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, 300px);
+          grid-auto-rows: 300px;
+        }
+        
+        video {
+          width: 50%;
+          height: 50%;
+          object-fit: cover;
+        }
+
+        button {
+          background-color: #e7e7e7;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center">
+        <h1>Welcome to WebRTC</h1>
+        <video class="video" style="transform: scale(-1,1);" #video autoplay controls [muted]="true"></video>
+        <span class="m-1"></span>
+        <video class="video" style="width:360 !important;" controls #recordedVideo></video>
+        <br>
+        <button class="btn btn-primary btn-lg"  (click)="call()">Call</button>
+        <button class="btn btn-primary btn-lg"  *ngIf="!isVideo" (click)="startVideo()">Start Video</button>
+        <button class="btn btn-warning btn-lg"  *ngIf="isVideo" (click)="stopVideo()">Stop Video</button>
+        <button class="btn btn-primary btn-lg" *ngIf="!isRecording" (click)="startRecording()">Start Recording</button>
+        <button class="btn btn-warning btn-lg" *ngIf="isRecording" (click)="stopRecording()">Stop Recording</button>
+        <button class="btn btn-primary btn-lg"  (click)="getDataChannelService()">Chat</button>
+        <button class="btn btn-warning btn-lg" (click)="hangUp()"> End Meeting </button>
+    </div>    
+    <div class="messagebox">
+      <label for="message">Enter a message:
+        <input type="text" name="message" id="message" placeholder="Message text" inputmode="latin" size=60 maxlength=120 #messageBox > 
+      </label>
+      <button id="sendButton" name="sendButton" class="buttonright" (click)= "sendMessage()" #sendButton >
+        Send
+      </button>
+    </div>
+
+    <div class="messagebox" id="receivebox">
+      <p>Messages received:</p>
+    </div>
+    
+</body>
+</html>

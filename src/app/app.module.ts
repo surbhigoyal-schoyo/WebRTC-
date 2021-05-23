@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { VideoConferenceComponent } from './video-conference/video-conference.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VideoConferenceComponent
   ],
   imports: [
     BrowserModule,
