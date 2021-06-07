@@ -8,7 +8,7 @@
         const ROOM_ID = "<%= roomId %>"
     </script>
     <title>Document</title>
-    <style>
+    <!-- <style>
         #recordedVideo {
           display: grid;
           grid-template-columns: repeat(auto-fill, 300px);
@@ -24,35 +24,44 @@
         button {
           background-color: #e7e7e7;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <div style="text-align:center">
         <h1>Welcome to WebRTC</h1>
-        <video class="video" style="transform: scale(-1,1);" #video autoplay controls [muted]="true"></video>
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>
+            <p class="video-description">local:</p>
+            <video #video [autoplay]="true" [muted]="true"></video>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <p class="video-description">remote:</p>
+            <video #remoteVideo [autoplay]="true"></video>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <!-- <video class="video"  #video autoplay controls></video>
         <span class="m-1"></span>
-        <video class="video" style="width:360 !important;" controls #recordedVideo></video>
-        <br>
-        <button class="btn btn-primary btn-lg"  (click)="call()">Call</button>
+        <video class="video" #remoteVideo controls autoplay></video>
+        <br> -->
+        <button class="btn btn-primary btn-lg"  (click)="call()">Join Meeting</button>
         <button class="btn btn-primary btn-lg"  *ngIf="!isVideo" (click)="startVideo()">Start Video</button>
         <button class="btn btn-warning btn-lg"  *ngIf="isVideo" (click)="stopVideo()">Stop Video</button>
         <button class="btn btn-primary btn-lg" *ngIf="!isRecording" (click)="startRecording()">Start Recording</button>
         <button class="btn btn-warning btn-lg" *ngIf="isRecording" (click)="stopRecording()">Stop Recording</button>
-        <button class="btn btn-primary btn-lg"  (click)="getDataChannelService()">Chat</button>
         <button class="btn btn-warning btn-lg" (click)="hangUp()"> End Meeting </button>
     </div>    
-    <div class="messagebox">
+    <!-- <div class="messagebox">
       <label for="message">Enter a message:
         <input type="text" name="message" id="message" placeholder="Message text" inputmode="latin" size=60 maxlength=120 #messageBox > 
       </label>
       <button id="sendButton" name="sendButton" class="buttonright" (click)= "sendMessage()" #sendButton >
         Send
       </button>
-    </div>
+    </div> -->
 
-    <div class="messagebox" id="receivebox">
+    <!-- <div class="messagebox" id="receivebox">
       <p>Messages received:</p>
-    </div>
+    </div> -->
     
 </body>
 </html>

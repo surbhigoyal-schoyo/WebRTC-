@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  wsEndpoint: 'ws://localhost:8081/',
+  wsEndpoint: 'ws://192.168.1.36:3000/',
   RTCPeerConfiguration: {
     iceServers: [
       {

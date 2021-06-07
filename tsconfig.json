@@ -26,5 +26,14 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "noImplicitAny": false,
+  "include": [
+    "src/**/*",
+    "package.json"
+  ],
+  "typeRoots": [
+    "./typings",
+    "./node_modules/@types/"
+  ]
 }

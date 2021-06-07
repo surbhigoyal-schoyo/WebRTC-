@@ -57,9 +57,17 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
+// import { resolve } from 'dns';
 import 'zone.js';  // Included with Angular CLI.
 
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// module.exports = {
+//     resolve: {
+//         fallback:{
+//             "http": require.resolve("stream-http")
+//         },
+//     }
+// }
